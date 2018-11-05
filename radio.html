@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+      <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <form method="get" action="">
+        <input onclick="bulb(1)" type ="radio"  name="switch" value="on"  >ON<br>
+        <input onclick="bulb(0)" type ="radio"  name="switch" value="off"  checked="checked">OFF<br>
+        <input type="submit" name="submit" value="run"><br><br>
+       
+    </form>
+    <img src="images/pic_bulboff.gif" id="bulb">
+  </body>
+
+    <script>
+    function bulb(x) {
+      let pic= document.getElementById("bulb");
+      if (x == 1 ){
+      pic.src="images/pic_bulbon.gif";
+    }
+      else {
+      pic.src="images/pic_bulboff.gif";
+      }
+    }
+
+    function bulboff() {
+      let pic= document.getElementById("bulb");
+      pic.src="images/pic_bulboff.gif";
+    }      
+      </script>
+   
+  
+</html>

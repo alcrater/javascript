@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+      
+    
+        <form action="" method="post">
+    
+                <p>Choose Your Country</p>
+                
+                <div id="country">
+                <select id ="countrySelect" name="country" onchange="showState()">
+                  <label>Country</label>
+                    <option value="USA">USA</option>
+                    <option value="UK">Ukraine</option>
+                </select>
+                </div>
+                
+                <div id="state">
+                    <label>State:</label>
+                <input type="text" id="usState">
+                <div id="searchCity" onkeyup="showCity()">Done</div>
+                </div>
+
+                <div id="city">
+                <select id="cityMenu" name="citylist" >
+                    <label>City:</label>
+                    <option value="lwt">Lewistown</option>
+                    <option value="st">State College</option>
+                </select>
+                </div>
+
+                <div id="ukState">
+                <select id="ukStateMenu" name="providence" onclick="showUkCity()">
+                    <option value="lv">LVIV</option>
+                    </select>
+                    </div>
+                <div id="ukProvidence">
+                <select id="ukProvidenceMenu" name="providence">
+                    <option value="lv">LVIV</option>
+                    </select>
+                    </div>
+                 </form>
+                
+                <script>
+                
+                    document.getElementById("country").style.display="block";
+                    document.getElementById("state").style.display="none";
+                    document.getElementById("city").style.display="none";
+                    document.getElementById("ukState").style.display="none";
+                    document.getElementById("ukProvidence").style.display="none";
+                    
+                    
+                function showState(){
+                    var country=document.getElementById("countrySelect").value;
+                    if(country=='USA'){
+                        document.getElementById("state").style.display="block";
+                        document.getElementById("ukStateMenu").style.display="none";
+                    }
+                    else{
+                        document.getElementById("ukState").style.display="block";
+                        document.getElementById("state").style.display="none";
+                    }
+                }
+                function showCity(){
+                    var usState=document.getElementById("usState").value;
+                    if (usState=="PA"){
+                        document.getElementById("cityMenu").style.display="block";
+                        document.getElementById("ukProvidence").style.display="none";
+                    }
+                }
+                function showUkCity(){
+                    document.getElementById("ukProvidence").style.display="block";
+                    document.getElementById("city").style.display="none";
+                }
+                </script>
+                
+        
+    
+</body>
+</html>
