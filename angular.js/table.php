@@ -4,13 +4,13 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("localhost", "audrey", "southhills#", "audrey");
 
-$result = $conn->query("SELECT userid, first_name, last_name, city FROM angular_people");
+$result = $conn->query("SELECT first_name, last_name, city FROM angular_people");
 
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "") {$outp .= ",";}
-	$outp .= '("First Name":"'   . $rs["first_name"]    	. '",';
-	$outp .= '"Last Name":"'. $rs["last_name"] 	. '"}';
+	$outp .= '{"First Name":"'   . $rs["first_name"]    	. '",';
+	$outp .= '"Last Name":"'. $rs["last_name"] 	. '"';
   $outp .= '"City":"'. $rs["city"] 	. '"}';
 }
 $outp ='{"records":['.$outp.']}';
