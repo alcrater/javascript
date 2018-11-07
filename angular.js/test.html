@@ -63,12 +63,17 @@ My name is {{ (firstName + " " + lastName) | uppercase }}
 </tbody>
 </table>
 
-</div>
-<select ng-model="selectedPerson" ng-options="x.firstName in myData">
+<p>Select a Person:</p>
+<select ng-model="selectedPerson" ng-options="x.firstName in myPHPData">
     </select>
+<p>You selected: {{selectedPerson.firstName}}</p>
+
+
+</div>
+
+
     
-    <p>You selected: {{selectedPerson.firstName}}</p>
-      
+   
   
 </body>
 <script src="myapp.js"></script>
