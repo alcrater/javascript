@@ -66,6 +66,8 @@ My name is {{ (firstName + " " + lastName) | uppercase }}
 <select ng-model="selectedPerson" ng-options="x.firstName for x in myPHPData">
     </select>
 <p>You selected: {{selectedPerson.firstName}}</p>
+<p>{{selectedPerson.lastName}}</p>
+<p>From: {{selectedPerson.City}}</p>
 </div>
  
    
