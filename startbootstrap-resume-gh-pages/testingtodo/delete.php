@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
 
     $query = "DELETE FROM todo WHERE id = '$id'";
 
-    $delete = mysqli_query($link, $query);
+    $delete = mysql($link, $query);
 
     if($delete){
 

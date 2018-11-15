@@ -29,13 +29,13 @@ global $link;
 
 $query  = "SELECT id, todoTitle FROM todo";
 
-$result = mysqli_query($link, $query);
+$result = mysql_query($link, $query);
 
 //check if there's any data inside the table
 
-if(mysqli_num_rows($result) >= 1){
+if(mysql_num_rows($result) >= 1){
 
-    while($row = mysqli_fetch_array($result)){
+    while($row = mysql_fetch_array($result)){
 
         $id = $row['id'];
 

@@ -14,11 +14,11 @@ if(isset($_GET['id'])) {
 
     $query = "SELECT todoTitle FROM todo WHERE id = '$id'";
 
-    $result = mysqli_query($link, $query);
+    $result = mysql_query($link, $query);
 
-    if(mysqli_num_rows($result)==1){
+    if(mysql_num_rows($result)==1){
 
-        $row = mysqli_fetch_array($result);
+        $row = mysql_fetch_array($result);
 
         if($row){
 

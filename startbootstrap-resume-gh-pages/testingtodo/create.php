@@ -43,7 +43,7 @@ if(isset($_POST['submit'])) {
 
     $query = "INSERT INTO todo(todoTitle) VALUES ('$title',now() )";
 
-    $insertTodo = mysqli_query($link, $query);
+    $insertTodo = mysql($link, $query);
 
     if($insertTodo){
 
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])) {
 
     }else{
 
-        echo mysqli_error($link);
+        echo mysql($link);
 
     }
 
