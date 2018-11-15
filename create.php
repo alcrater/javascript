@@ -75,7 +75,7 @@ if(isset($_POST['submit'])) {
 
 <h1>Create Todo List</h1>
 
-<button type="submit"><a href="index.php">View all Todo</a></button>
+<button type="submit"><a href="todo.php">View all Todo</a></button>
 
 <form method="post" action="create.php">
 
