@@ -43,7 +43,7 @@ if(mysql_num_rows($result) >= 1){
 
     <ul>
 
-        <li><a href="create.php?id=<?php echo $id?>"><?php echo $title ?></a></li> 
+        <li><a href="tododetails.php?id=<?php echo $id?>"><?php echo $title ?></a></li> 
 
         <button type="button"><a href="edittodo.php?id=<?php echo $id?>">Edit</a></button>
 
