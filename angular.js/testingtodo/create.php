@@ -41,7 +41,7 @@ if(isset($_POST['submit'])) {
 
     global $link;
 
-    $query = "INSERT INTO todo(todoTitle) VALUES ('$title',now() )";
+    $query = "INSERT INTO todo(todoTitle) VALUES ('$title')";
 
     $insertTodo = mysql($link, $query);
 
