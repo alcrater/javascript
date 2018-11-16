@@ -37,7 +37,7 @@ if(isset($_POST['submit'])) {
 
         // connect to database
 
-    $query = "INSERT INTO todo(todoTitle) VALUES ('$title')";
+    $query = "INSERT INTO todo (todoTitle) VALUES ('$title')";
 
     $insertTodo = mysql($query);
 
