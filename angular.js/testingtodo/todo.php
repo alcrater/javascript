@@ -23,13 +23,9 @@ require_once("dbconnection.php");
 
 <?php
 
-db();
-
-global $link;
-
 $query  = "SELECT id, todoTitle FROM todo";
 
-$result = mysql_query($link, $query);
+$result = mysql_query($query);
 
 //check if there's any data inside the table
 

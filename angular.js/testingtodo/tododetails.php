@@ -8,13 +8,9 @@ if(isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    db();
-
-    global $link;
-
     $query = "SELECT todoTitle FROM todo WHERE id = '$id'";
 
-    $result = mysql_query($link, $query);
+    $result = mysql_query($query);
 
     if(mysql_num_rows($result)==1){
 

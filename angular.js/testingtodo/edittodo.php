@@ -9,13 +9,9 @@ if(isset($_GET['id'])){
 
     $id = $_GET['id'];
 
-    db();
-
-    global $link;
-
     $query = "SELECT todoTitle FROM todo WHERE id = '$id'";
 
-    $result = mysql_query($link, $query);
+    $result = mysql_query($query);
 
     if(mysql_num_rows($result)==1){
 
@@ -72,7 +68,7 @@ if(isset($_GET['id'])){
 
         $query = "UPDATE todo SET todoTitle = '$title'  WHERE id = '$id'";
 
-        $insertEdited = mysql_query($link, $query);
+        $insertEdited = mysql_query( $query);
 
         if($insertEdited){
 

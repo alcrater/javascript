@@ -37,13 +37,9 @@ if(isset($_POST['submit'])) {
 
         // connect to database
 
-    db();
-
-    global $link;
-
     $query = "INSERT INTO todo(todoTitle) VALUES ('$title')";
 
-    $insertTodo = mysql($link, $query);
+    $insertTodo = mysql($query);
 
     if($insertTodo){
 
