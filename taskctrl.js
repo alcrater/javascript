@@ -2,7 +2,7 @@ app.controller('tasktodo', function($scope, $http) {
 
 
 
-  getTask(); // Load all available items
+    getTask(); // Load all available items
 
   function getTask(){
 
@@ -62,13 +62,13 @@ app.controller('tasktodo', function($scope, $http) {
 
 
 
-  $scope.changeStatus = function(item, status) {
+  $scope.changeStatus = function(item, status, task) {
 
     if(status=='2'){status='0';}else{status='2';}
 
       $http.post("updateTask.php?itemID="+item+"&status="+status).success(function(data){
 
-        getItem();
+        getTask();
 
       });
 

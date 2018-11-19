@@ -2,14 +2,17 @@
 
 require_once 'dbconnection.php'; // The mysql database connection script
 
+
 if(isset($_GET['item'])){
 
 	$item = $mysqli->real_escape_string($_GET['item']);
 
 	$status = "0";
 
-	
-	$query="INSERT INTO todo(item,status)  VALUES ('$item', '$status', )";
+	$created = date("Y-m-d", strtotime("now"));
+
+
+	$query="INSERT INTO todo(item,status,created_at)  VALUES ('$item', '$status', '$created')";
 
 	$result = $mysqli->query($query);
 
@@ -22,5 +25,7 @@ if(isset($_GET['item'])){
 	echo $json_response = json_encode($result);
 
 	}
+
+?>
 
 ?>
