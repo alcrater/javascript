@@ -1,4 +1,4 @@
-<html ng-app="shopApp">
+<html ng-app="tasktodo">
 
   <head>
 
@@ -20,19 +20,19 @@
 
   </head>
 
-  <body ng-controller="shopController">
+  <body ng-controller="tasktodo">
 
     <div class="navbar navbar-default" id="navbar">
 
       <div class="container" id="navbar-container">
 
-  	   <div class="navbar-header navbar-brand">Simple Todo List</div><!-- /.navbar-header -->
+  	   <div class="navbar-header navbar-brand">Simple Todo List Using Angular JS </div><!-- /.navbar-header -->
 
          <div class="pull-right">
 
-          <button class="btn btn-default btn-sm mt-10" ng-click="clearItem()">
+          <button class="btn btn-default btn-sm mt-10" ng-click="clearTask()">
 
-            Clear Completed Items
+            Clear Completed Tasks
 
           </button>
 
@@ -56,7 +56,7 @@
 
 	            <div class="col-sm-9 col-xs-12">
 
-        				<form class="form-inline" name="shopList">
+        				<form class="form-inline" name="taskList">
 
 				         <div class="form-actions">
 
@@ -66,7 +66,7 @@
 
       							<div class="input-group-btn">
 
-						          <button class="btn btn-info" type="submit" ng-click="addItem(itemInput); itemInput = null" ng-disabled="shopList.$invalid">
+						          <button class="btn btn-info" type="submit" ng-click="addItem(itemInput); itemInput = null" ng-disabled="taskList.$invalid">
 
       									<i class="fa fa-plus"></i>&nbsp;Add Item
 
@@ -96,9 +96,9 @@
 
         			<span class="items-list-mark"></span>
 
-        			<span class="items-list-desc" ng-class="{strike:item.STATUS==2}">{{item.ITEM}} <span class="date">[{{item.CREATED_AT | date:"MMM d"}}]</span></span>
+        			<span class="items-list-desc" ng-class="{strike:item.STATUS==2}">{{item.ITEM}}</span>
 
-        			<a ng-click="deleteItem(item.ID)" class="pull-right red"><i class="fa fa-minus-circle"></i></a>
+        			<a ng-click="deleteTask(item.ID)" class="pull-right red"><i class="fa fa-minus-circle"></i></a>
 
       		  </label>
 

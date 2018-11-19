@@ -8,11 +8,8 @@ if(isset($_GET['item'])){
 
 	$status = "0";
 
-	$created = date("Y-m-d", strtotime("now"));
-
-
-
-	$query="INSERT INTO todo(item,status,created_at)  VALUES ('$item', '$status', '$created')";
+	
+	$query="INSERT INTO todo(item,status)  VALUES ('$item', '$status', )";
 
 	$result = $mysqli->query($query);
 

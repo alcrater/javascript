@@ -6,11 +6,11 @@ var app = angular.module('taskapp', []);
 
 
 
-  getItem(); // Load all available items
+  getTask(); // Load all available items
 
-  function getItem(){
+  function getTask(){
 
-  $http.post("getItem.php").success(function(data){
+  $http.post("getTask.php").success(function(data){
 
         $scope.items = data;
 
@@ -24,7 +24,7 @@ var app = angular.module('taskapp', []);
 
     $http.post("addItem.php?item="+item).success(function(data){
 
-        getItem();
+        getTask();
 
         $scope.itemInput = "";
 
@@ -40,7 +40,7 @@ var app = angular.module('taskapp', []);
 
     $http.post("deleteTask.php?itemID="+item).success(function(data){
 
-        getItem();
+        getTask();
 
       });
 
@@ -56,7 +56,7 @@ var app = angular.module('taskapp', []);
 
     $http.post("clearTask.php").success(function(data){
 
-        getItem();
+        getTask();
 
       });
 
@@ -66,11 +66,11 @@ var app = angular.module('taskapp', []);
 
 
 
-  $scope.changeStatus = function(item, status, task) {
+  $scope.changeStatus = function(item, status) {
 
     if(status=='2'){status='0';}else{status='2';}
 
-      $http.post("updateItem.php?itemID="+item+"&status="+status).success(function(data){
+      $http.post("updateTask.php?itemID="+item+"&status="+status).success(function(data){
 
         getItem();
 
