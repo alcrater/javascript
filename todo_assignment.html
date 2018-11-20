@@ -66,6 +66,7 @@
 
       							<div class="input-group-btn">
 
+						          <button class="btn btn-info" type="submit" ng-click="addItem(itemInput); itemInput = null" ng-disabled="taskList.$invalid">
 
       									<i class="fa fa-plus"></i>&nbsp;Add Item
 
@@ -95,7 +96,7 @@
 
         			<span class="items-list-mark"></span>
 
-        			<span class="items-list-desc" ng-class="{strike:item.STATUS==2}"></span>
+        			<span class="items-list-desc" ng-class="{strike:item.STATUS==2}">{{item.ITEM}} {{item.Status}}</span>
 
         			<a ng-click="deleteTask(item.ID)" class="pull-right red"><i class="fa fa-minus-circle"></i></a>
 
