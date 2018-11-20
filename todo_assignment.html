@@ -20,133 +20,96 @@
 
   </head>
 
-   
-  <div class="widget-box" id="recent-box" ng-controller="taskctrl">
-  
-    <div class="widget-header header-color-blue">
-  
-      <!-- HEADER -->
-  
-      <div class="row">
-  
-        <!-- Header Title -->
-  
-        <div class="col-sm-6">
-  
-          <h4 class="bigger lighter">
-  
-            <i class="glyphicon glyphicon-align-justify"></i>&nbsp;
-  
-            TASK MANAGER
-  
-          </h4>
-  
-        </div>
-  
-        
-  
-        <!-- New Task Button 
-  
-        When clicked it toggles value of addNewClicked, then we use that status to
-  
-        show/hide the add new task input-box below
-  
-        -->
-  
-        <div class="col-sm-3">
-  
-          <button ng-click="addNewClicked=!addNewClicked;" class="btn btn-sm btn-danger header-elements-margin"><i class="glyphicon  glyphicon-plus"></i>&nbsp;Add New Task</button>
-  
-        </div>
-  
-    
-  
-        <!-- Filter Task
-  
-        Check below, where it displays the task list using ng-repeat it sets this
-  
-        filter, so it dinamically filter task list 
-  
-        -->
-  
-        <div class="col-sm-3">
-  
-          <input type="text" ng-model="filterTask" class="form-control search header-elements-margin" placeholder="Filter Tasks">
-  
-        </div>
-  
+  <body ng-controller="tasktodo">
+
+    <div class="navbar navbar-default" id="navbar">
+
+      <div class="container" id="navbar-container">
+
+  	   <div class="navbar-header navbar-brand">Simple Todo List Using Angular JS </div><!-- /.navbar-header -->
+
+         <div class="pull-right">
+
+          <button class="btn btn-default btn-sm mt-10" ng-click="clearTask()">
+
+            Clear Completed Tasks
+
+          </button>
+
+         </div>
+
       </div>
-  
+
     </div>
-  
-    
-  
-    <!-- TASK LIST -->
-  
-    <div class="widget-body ">
-  
-      <!-- Add New Task
-  
-      Check that the form to add a new task is hidden at its visibility depends
-  
-      on addNewClicked wich is toggled above.
-  
-      -->
-  
-      <form ng-init="addNewClicked=false; " ng-if="addNewClicked" id="newTaskForm" class="add-task">
-  
-        <div class="form-actions">
-  
-          <div class="input-group">
-  
-            <input type="text" class="form-control" name="comment" ng-model="taskInput" placeholder="Add New Task" ng-focus="addNewClicked">
-  
-            
-  
-            <div class="input-group-btn">
-  
-              <button class="btn btn-default" type="submit" ng-click="addItem(taskInput)"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add New Task</button>
-  
-            </div>
-  
-          </div>
-  
-        </div>
-  
-      </form>
-  
-    
-  
-      <!-- Task List
-  
-      Here we use ng-repeat to display the task list, with the filter set above.
-  
-      -->
-  
-      <div class="task">
-  
-        <label class="checkbox" ng-repeat="task in tasks | filter : filterTask">
-  
-          <input 
-  
-          type="checkbox"
-  
-          value="{{task.STATUS}}"
-  
-          ng-checked="task.STATUS==2"
-  
-          ng-click="toggleStatus(task.ID,task.STATUS, task.TASK)"/> 
-  
-          <span ng-class="{strike:task.STATUS==2}">{{task.TASK}} [{{task.ID}}]</span>
-  
-          <a ng-click="deleteTask(task.ID)" class="pull-right"><i class="glyphicon glyphicon-trash"></i></a>
-  
-          </label>
-  
-      </div>
-  
+
+    <div class="container">
+
+     <div class="row">
+
+  		<div class="col-lg-12 col-sm-12">
+
+        <section class="items">
+
+        	<header class="items-header">
+
+    		    <div class="row">
+
+	            <div class="col-sm-9 col-xs-12">
+
+        				<form class="form-inline" name="taskList">
+
+				         <div class="form-actions">
+
+		              <div class="input-group">
+
+    							<input type="text" class="form-control" ng-model="itemInput" placeholder="Add New Item" autofocus required />
+
+      							<div class="input-group-btn">
+
+						          <button class="btn btn-info" type="submit" ng-click="addItem(itemInput); itemInput = null" ng-disabled="taskList.$invalid">
+
+      									<i class="fa fa-plus"></i>&nbsp;Add Item
+
+      								</button>
+
+      							</div>
+
+      						</div>
+
+      					</div>
+
+      				</form>
+
+      			</div>
+
+      		</div>
+
+    	   </header>
+
+      	 <fieldset class="items-list">
+
+      		  <label class="items-list-item" ng-repeat="item in items">
+
+        			<input type="checkbox" value="{{item.STATUS}}" ng-checked="item.STATUS==2" ng-click="changeStatus(item.ID,item.STATUS,item.ITEM)"
+
+        			class="items-list-cb"/>
+
+        			<span class="items-list-mark"></span>
+
+        			<span class="items-list-desc" ng-class="{strike:item.STATUS==2}">{{item.ITEM}}</span>
+
+        			<a ng-click="deleteTask(item.ID)" class="pull-right red"><i class="fa fa-minus-circle"></i></a>
+
+      		  </label>
+
+      	 </fieldset>
+
+        </section>
+
+		  </div>
+
     </div>
-  
+
   </div>
 
 
