@@ -17,4 +17,4 @@ $_POST = json_decode(file_get_contents('ajax/addItem'), true);
 
 
 
-?>
+
