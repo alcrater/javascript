@@ -3,83 +3,31 @@
 var app = angular.module('taskapp', []);
 
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-app.controller('tasktodo', function($scope, $http) {
+  require('dbconnection.php');
 
+	$sql = "SELECT * FROM todo";
 
+	$checkForTable = $conn->query($sql);
 
-  getItem(); // Load all available items
+	if (mysqli_num_rows($checkForTable) < 1 ) {
 
-  function getItem(){
+    CREATE TABLE IF NOT EXISTS `todo` (
 
-  $http.post("getItem.php").success(function(data){
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+    
+      `task` varchar(200) NOT NULL,
+    
+      `status` int(11) NOT NULL,
+    
+      `created_at` int(11) NOT NULL,
+    
+      PRIMARY KEY (`id`)
+    
+    );
 
-        $scope.items = data;
+    $tableCreate = $conn->query($sql);
 
-       });
+  }
 
-  };
-
-
-
-  $scope.addItem = function (item) {
-
-    $http.post("addItem.php?item="+item).success(function(data){
-
-        getItem();
-
-        $scope.itemInput = "";
-
-      });
-
-  };
-
-
-
-  $scope.deleteItem = function (item) {
-
-    if(confirm("Are you sure to delete this item?")){
-
-    $http.post("deleteItem.php?itemID="+item).success(function(data){
-
-        getItem();
-
-      });
-
-    }
-
-  };
-
-
-
-  $scope.clearItem = function () {
-
-    if(confirm("Delete all checked items?")){
-
-    $http.post("clearItem.php").success(function(data){
-
-        getItem();
-
-      });
-
-    }
-
-  };
-
-
-
-  $scope.changeStatus = function(item, status, task) {
-
-    if(status=='2'){status='0';}else{status='2';}
-
-      $http.post("updateItem.php?itemID="+item+"&status="+status).success(function(data){
-
-        getItem();
-
-      });
-
-  };
-
-
-
-});
