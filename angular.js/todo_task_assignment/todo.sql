@@ -9,10 +9,3 @@ CREATE TABLE IF NOT EXISTS `todo` (
 
 
 
-INSERT INTO `todo` (`id`, `item`, `status`, `created_at`) VALUES
-(1, 'This was very hard', 1, '2018-18-11'),
-(2, 'Alot of google research', 1, '2018-18-11'),
-(3, 'I am ready to pull hair out', 1, '2018-18-11'),
-(4, 'I admit defeat', 1, '2018-18-11'),
-(5, 'See you next month', 1, '2018-18-11');
-
