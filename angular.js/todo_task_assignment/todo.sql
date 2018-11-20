@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS `todo` (
 
 
 INSERT INTO `todo` (`id`, `item`, `status`, `created_at`) VALUES
-(1, 'This was very hard', 2, '2018-18-11'),
-(2, 'Alot of google research', 2, '2018-18-11'),
-(3, 'I am ready to pull hair out', 2, '2018-18-11'),
-(4, 'I admit defeat', 2, '2018-18-11'),
-(5, 'See you next month', 2, '2018-18-11');
+(1, 'This was very hard', 0, '2018-18-11'),
+(2, 'Alot of google research', 0, '2018-18-11'),
+(3, 'I am ready to pull hair out', 0, '2018-18-11'),
+(4, 'I admit defeat', 0, '2018-18-11'),
+(5, 'See you next month', 0, '2018-18-11');
 
