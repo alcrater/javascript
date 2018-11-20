@@ -12,11 +12,11 @@ if ($conn->connect_error)
   die("Connection Failed: " . $conn->connect_error);
 }
 
-if(isset($_GET['task'])){
-$task = $_GET['task'];
+if(isset($_GET['item'])){
+$item = $_GET['item'];
 $status = "0";
 $created = time();
-$query="INSERT INTO tasks(task,status,created_at)  VALUES ('$task', '$status', '$created')";
+$query="INSERT INTO todo(item,status,created_at)  VALUES ('$item', '$status', '$created')";
 $result = $mysqli->query($query);
 $result = $mysqli->affected_rows;
 echo $json_response = json_encode($result);
